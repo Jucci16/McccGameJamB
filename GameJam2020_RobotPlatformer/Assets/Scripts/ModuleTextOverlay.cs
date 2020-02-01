@@ -19,6 +19,7 @@ public class ModuleTextOverlay : MonoBehaviour
     {
         // if the time is up, destroy this game object
         timeLeft -= Time.deltaTime;
+
         if(timeLeft <= 0)
         {
             Destroy(gameObject);

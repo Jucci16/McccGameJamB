@@ -40,6 +40,8 @@ public class PlayerModuleManager : MonoBehaviour
     /// <param name="module"></param>
     public void addModule(BaseModule module)
     {
+        
+
          if (obtainedModules.Contains(module))
         {
             Debug.Log("Module is already collected");
@@ -50,6 +52,7 @@ public class PlayerModuleManager : MonoBehaviour
 
         // Add the newly grabbed Module as the selected Module
         setSelectedModule(obtainedModules.Count - 1);
+        GetInventory().addInventoryItem(module);
     }
 
     /// <summary>
@@ -119,12 +122,18 @@ public class PlayerModuleManager : MonoBehaviour
         // Iterate through each module and compare the module names
         for (var i = 0; i < obtainedModules.Count; i++)
         {
-            if (module.moduleName == obtainedModules[i].moduleName)
+            if (module.name == obtainedModules[i].name)
             {
                 return i;
             }
         }
 
         return -1;
+    }
+
+
+    private Inventory GetInventory()
+    {
+        return GameObject.FindGameObjectWithTag("ItemBar").GetComponentInChildren<Inventory>();
     }
 }

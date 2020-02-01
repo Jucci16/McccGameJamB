@@ -10,7 +10,9 @@ public class Hover : BaseModule
     // top height of a player's jump
     Vector3 topOfJumpPosition = Vector3.zero;
 
-    public override string moduleName => "Hover";
+    public override string name => "Hover";
+
+    public override string spritePath => "Sprites/modules/module_battery";
 
     public override void apply(GameObject player)
     {
