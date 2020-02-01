@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class BaseModule
 {
+    public abstract string moduleName { get; }
+
     public abstract void apply(GameObject player);
 
     public abstract void onUpdate(GameObject player);
