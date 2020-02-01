@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DoubleJump : BaseModule
 {
-    
-
     // is the player allowed to use a double jump (set to false after they perform the action)
     bool canJump = true;
 
