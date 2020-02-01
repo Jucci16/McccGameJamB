@@ -118,14 +118,14 @@ public class Movement : MonoBehaviour
     private void flipPlayerLeft()
     {
         ///This is used to rotate the player
-        //transform.eulerAngles = new Vector2(0, 180);
+        transform.eulerAngles = new Vector2(0, 180);
     }
 
     /// NOTE: this function does not work correctly if the camera is a child of the player
     private void flipPlayerRight()
     {
         ///This is used to rotate the player
-        //transform.eulerAngles = new Vector2(0, 0);
+        transform.eulerAngles = new Vector2(0, 0);
     }
 
     // Is the player touching the ground
