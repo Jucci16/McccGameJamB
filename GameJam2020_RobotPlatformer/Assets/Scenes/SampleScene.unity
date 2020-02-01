@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 263777749}
   m_Layer: 0
   m_Name: Floor (3)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,7 +282,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8.921282
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -310,7 +310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &953280884 stripped
 Transform:
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 1287728627}
   m_Layer: 0
   m_Name: Floor (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 1505226762}
   m_Layer: 0
   m_Name: Floor (4)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 1599615677}
   m_Layer: 0
   m_Name: Floor (5)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -652,7 +652,7 @@ PrefabInstance:
     - target: {fileID: 3381040959220776687, guid: 1ca6673f59b4d8042a98d90abf437f0f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3578535551615048194, guid: 1ca6673f59b4d8042a98d90abf437f0f,
         type: 3}
@@ -807,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 5897865939647339621, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5897865939647339621, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
@@ -1015,7 +1015,7 @@ PrefabInstance:
     - target: {fileID: 8827721752635169069, guid: ea8e3dae887a87a4b88ad36a0c8a0202,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8827721752635169069, guid: ea8e3dae887a87a4b88ad36a0c8a0202,
         type: 3}
@@ -1031,6 +1031,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827721753146261802, guid: ea8e3dae887a87a4b88ad36a0c8a0202,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 8827721753146261804, guid: ea8e3dae887a87a4b88ad36a0c8a0202,
         type: 3}
@@ -1061,11 +1066,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8827721753146261802, guid: ea8e3dae887a87a4b88ad36a0c8a0202,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 8827721753857985278, guid: ea8e3dae887a87a4b88ad36a0c8a0202,
         type: 3}
