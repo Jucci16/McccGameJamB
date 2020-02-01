@@ -29,8 +29,6 @@ public class Movement : MonoBehaviour
     /// represents the player collider's distance to it's bottom
     private float colliderDistToBottom;
 
-    public GameObject inventory;
-
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>

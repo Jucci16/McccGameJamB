@@ -682,6 +682,11 @@ PrefabInstance:
       propertyPath: maxMoveSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5897865939647339618, guid: 193211a96dc85f44a95cc752e60af5da,
+        type: 3}
+      propertyPath: groundLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5897865939647339619, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
