@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
         ///get the rididbody component that is attached to our player
         playerRigidBody = GetComponent<Rigidbody2D>();
         tempspeed = movementSpeed;
+        Debug.Log("Start");
     }
 
     // Update is called once per frame
@@ -133,8 +134,9 @@ public class Movement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Boundaries"))
         {
-            //Debug.Log("OB");
-            SceneManager.LoadScene("SampleScene");
+            
+            Debug.Log("OB");
+            //SceneManager.LoadScene("SampleScene");
         }
         // set grounded to true if collided with the floor
         if (collision.gameObject.CompareTag("Floor"))

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Module
   - Floor
+  - Boundaries
   layers:
   - Default
   - TransparentFX
