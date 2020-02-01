@@ -24,6 +24,11 @@ public class DoubleJump : BaseModule
         }
     }
 
+    public override string onEnableText()
+    {
+        return "Double Jump Enabled [Spacebar]";
+    }
+
     public override void onUpdate(GameObject player)
     {
         // if canJump is false, check if it can be reset
