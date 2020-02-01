@@ -148,7 +148,8 @@ public class Movement : MonoBehaviour
         var hit = Physics2D.Raycast(transform.position, Vector3.down, colliderDistToBottom + 0.1f, groundLayerMask);
         if (hit.collider != null)
         {
-            return true;
+            //Debug.Log("OB");
+            SceneManager.LoadScene("SampleScene");
         }
 
         return false;
