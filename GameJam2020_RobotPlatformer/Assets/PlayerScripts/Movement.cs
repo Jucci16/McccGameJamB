@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     private Rigidbody2D playerRigidBody;
     private float inputHorz;
     public float jumpForce;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,15 @@ public class Movement : MonoBehaviour
     {
         horizontalMovement();
         jump();
+        crouch();
+    }
+
+    private void crouch()
+    {
+        //if(Input.GetKeyDown(KeyCode.LeftControl))
+        //{
+        //    gameObject.GetComponent<BoxCollider2D>().transform.localScale
+        //}
     }
 
     private void horizontalMovement()
@@ -60,6 +71,16 @@ public class Movement : MonoBehaviour
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
             ///Another way to apply a vertical velocity to our player based on jumpForce
             //playerRigidBody.velocity = Vector2.up * jumpForce;
+        }
+        if(playerRigidBody.velocity.y < 0)
+        {
+            playerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+
+        }
+
+        else if(playerRigidBody.velocity.y > 0 && !Input.GetButton ("Jump"))
+        {
+            playerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
 
