@@ -5,17 +5,26 @@ using UnityEngine;
 public class PlayerModuleManager : MonoBehaviour
 {
     // list of modules the player has obtained
-    List<BaseModule> obtainedModules;
+    private List<BaseModule> obtainedModules;
 
     void Start()
     {
         obtainedModules = new List<BaseModule>();
-        obtainedModules.Add(new DoubleJump());
     }
 
     // Update is called once per frame
     void Update()
     {
-        obtainedModules[0].apply(gameObject);
+        // TODO instead we will use the selected module here
+        if (obtainedModules.Count > 0)
+        {
+            obtainedModules[0].apply(gameObject);
+        }
+    }
+
+    // Add a module to the list of obtained modules
+    public void addModule(BaseModule module)
+    {
+        obtainedModules.Add(module);
     }
 }
