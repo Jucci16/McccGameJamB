@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This class is the manager for a player's modules
 public class PlayerModuleManager : MonoBehaviour
 {
     // list of modules the player has obtained
