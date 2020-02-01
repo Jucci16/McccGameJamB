@@ -64,6 +64,7 @@ public class Movement : MonoBehaviour
         inputHorz = Input.GetAxisRaw("Horizontal");
 
         accelerate();
+        deceleration();
         ///Apply a horizontal movement to the player based on the movement speed
         playerRigidBody.velocity = new Vector2(inputHorz * movementSpeed, playerRigidBody.velocity.y);
 
@@ -112,8 +113,21 @@ public class Movement : MonoBehaviour
         {
             movementSpeed = tempspeed;
         }
+    }
+
+    private void deceleration()
+    {
+        if (playerRigidBody.velocity.x != 0 && movementSpeed < maxMoveSpeed && (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)))
+        {
+            movementSpeed -= Deceleration;
+        }
+        //if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        //{
+        //    movementSpeed = tempspeed;
+        //}
 
     }
+
     /// NOTE: this function does not work correctly if the camera is a child of the player
     private void flipPlayerLeft()
     {
