@@ -11,7 +11,7 @@ GameJam2020_RobotPlatformer/[Ll]ogs/
 GameJam2020_RobotPlatformer/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-GameJam2020_RobotPlatformer/[Aa]ssets/**/*.meta
+//GameJam2020_RobotPlatformer/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 GameJam2020_RobotPlatformer/[Aa]ssets/AssetStoreTools*
