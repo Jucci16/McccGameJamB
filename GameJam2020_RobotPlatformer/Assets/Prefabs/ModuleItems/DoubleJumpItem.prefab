@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3746701305861423197}
   - component: {fileID: 2906035515721940942}
   - component: {fileID: 722769438929127675}
+  - component: {fileID: -8072553281750944179}
   m_Layer: 0
   m_Name: DoubleJumpItem
   m_TagString: Untagged
@@ -141,5 +142,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac80210784b2e454fa6f0eb0e082bb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textOverlay: {fileID: 3200338720567138144, guid: a99593eb0f7508d4ba9dc5b8894a5c4e,
+    type: 3}
+--- !u!114 &-8072553281750944179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588414734268731828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9818f23d689a2249b5b56113c07e1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
