@@ -10,7 +10,9 @@ public class ModuleTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            BaseModule moduleAction = new DoubleJump();// TODO hardcoded doublejump
+            // retrieve action type
+            IModuleItemType moduleType = gameObject.GetComponent<IModuleItemType>();
+            BaseModule moduleAction = moduleType.getModuleAction();
 
             // retrieve the player's obtained module list and add the new module
             PlayerModuleManager playerModuleManager = collision.gameObject.GetComponent<PlayerModuleManager>();
