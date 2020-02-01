@@ -16,6 +16,12 @@ public class PlayerModuleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // first loop through each module and perform the update action if needed
+        foreach(BaseModule module in obtainedModules)
+        {
+            module.onUpdate(gameObject);
+        }
+        // next execute the action of the selected module
         // TODO instead we will use the selected module here
         if (obtainedModules.Count > 0)
         {

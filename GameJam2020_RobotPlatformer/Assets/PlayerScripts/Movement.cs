@@ -16,6 +16,9 @@ public class Movement : MonoBehaviour
     private float inputHorz;
     public float jumpForce;
 
+    // true if the player is currently on the ground
+    private bool isGrounded = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,8 +56,7 @@ public class Movement : MonoBehaviour
 
     private void jump()
     {
-        ///We can use this to check if a key was pressed
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             ///Apply a vertical velocity to our player based on jumpForce
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
@@ -77,12 +79,32 @@ public class Movement : MonoBehaviour
         //transform.eulerAngles = new Vector2(0, 0);
     }
 
+    // Is the player touching the ground
+    public bool isPlayerGrounded()
+    {
+        return isGrounded;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Boundaries"))
         {
             //Debug.Log("OB");
             SceneManager.LoadScene("SampleScene");
+        }
+        // set grounded to true if collided with the floor
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // set grounded to false if left the floor
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            isGrounded = false;
         }
     }
 }
