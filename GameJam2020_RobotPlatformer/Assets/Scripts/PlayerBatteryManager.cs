@@ -25,4 +25,12 @@ public class PlayerBatteryManager : MonoBehaviour
     {
         batteryCount--;
     }
+
+    /// <summary>
+    /// True if the player has at least one battery
+    /// </summary>
+    public bool hasBattery()
+    {
+        return batteryCount > 0;
+    }
 }

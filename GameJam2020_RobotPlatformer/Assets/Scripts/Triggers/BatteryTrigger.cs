@@ -15,7 +15,7 @@ public class BatteryTrigger : MonoBehaviour
 
             // display the text overlay for the battery
             GameObject overlayObject = Instantiate(textOverlay);
-            overlayObject.GetComponent<ModuleTextOverlay>().setText("Battery Obtained");
+            overlayObject.GetComponent<ModuleTextOverlay>().setText("Battery Obtained (F to use)");
 
             // now delete this game object from the screen
             Destroy(this.gameObject);
