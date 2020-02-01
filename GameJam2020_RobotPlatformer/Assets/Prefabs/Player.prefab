@@ -145,7 +145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  maxMoveSpeed: 0
   jumpForce: 5
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  accel: 0
+  Deceleration: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &2027639567626989867
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,18 +23,22 @@ public class Movement : MonoBehaviour
     private float lastVelocity;
     public float Deceleration;
 
+    // layer mask for checking ground collisions
+    public LayerMask groundLayerMask;
+
+    /// represents the player collider's distance to it's bottom
+    private float colliderDistToBottom;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
-    // true if the player is currently on the ground
-    private bool isGrounded = true;
-
-    // Start is called before the first frame update
     void Start()
     {
         ///get the rididbody component that is attached to our player
         playerRigidBody = GetComponent<Rigidbody2D>();
         tempspeed = movementSpeed;
+        // get the collider distance to bottom
+        colliderDistToBottom = GetComponent<Collider2D>().bounds.extents.y;
     }
 
     // Update is called once per frame
@@ -79,22 +83,23 @@ public class Movement : MonoBehaviour
     /// </summary>
     private void jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space) && isPlayerGrounded())
         {
             ///Apply a vertical velocity to our player based on jumpForce
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
             ///Another way to apply a vertical velocity to our player based on jumpForce
             //playerRigidBody.velocity = Vector2.up * jumpForce;
-        }
-        if(playerRigidBody.velocity.y < 0)
-        {
-            playerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 
-        }
+            if (playerRigidBody.velocity.y < 0)
+            {
+                playerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 
-        else if(playerRigidBody.velocity.y > 0 && !Input.GetButton ("Jump"))
-        {
-            playerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+
+            else if (playerRigidBody.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                playerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
         }
     }
     private void accelerate()
@@ -126,29 +131,12 @@ public class Movement : MonoBehaviour
     // Is the player touching the ground
     public bool isPlayerGrounded()
     {
-        return isGrounded;
-    }
+        var hit = Physics2D.Raycast(transform.position, Vector3.down, colliderDistToBottom + 0.1f, groundLayerMask);
+        if (hit.collider != null)
+        {
+            return true;
+        }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Boundaries"))
-        {
-            //Debug.Log("OB");
-            SceneManager.LoadScene("SampleScene");
-        }
-        // set grounded to true if collided with the floor
-        if (collision.gameObject.CompareTag("Floor"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // set grounded to false if left the floor
-        if (collision.gameObject.CompareTag("Floor"))
-        {
-            isGrounded = false;
-        }
+        return false;
     }
 }
