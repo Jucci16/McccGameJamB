@@ -9,7 +9,9 @@ public class DoubleJump : BaseModule
     // is the player allowed to use a double jump (set to false after they perform the action)
     bool canJump = true;
 
-    public override string moduleName => "Double Jump";
+    public override string name => "Double Jump";
+
+    public override string spritePath => "Sprites/modules/module_doubleJump";
 
     public override void apply(GameObject player)
     {

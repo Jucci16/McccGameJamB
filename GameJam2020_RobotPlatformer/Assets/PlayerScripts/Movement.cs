@@ -23,6 +23,8 @@ public class Movement : MonoBehaviour
     private float lastVelocity;
     public float Deceleration;
 
+    public GameObject inventory;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
