@@ -12,7 +12,7 @@ public class Hover : BaseModule
 
     public override string name => "Hover";
 
-    public override string spritePath => "Sprites/modules/module_battery";
+    public override string spritePath => "Sprites/modules/module_hover";
 
     public override void apply(GameObject player)
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorState : MonoBehaviour
+public class DoorState : IDoorState
 {
     /// <summary>
     /// True if the door is open
@@ -41,8 +41,13 @@ public class DoorState : MonoBehaviour
     /// <summary>
     /// Open the door
     /// </summary>
-    public void openDoor()
+    public override void openDoor()
     {
         isOpen = true;
+    }
+
+    public override void updateSprite(bool on)
+    {
+        // never update the sprite
     }
 }
