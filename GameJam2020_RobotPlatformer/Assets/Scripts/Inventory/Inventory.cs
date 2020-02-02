@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     private List<GameObject> _inventorySlots;
+    private GameObject _selectedInventorySlot;
 
     void Start()
     {
@@ -20,9 +21,13 @@ public class Inventory : MonoBehaviour
         };
     }
 
-
-    public void addInventoryItem(BaseModule baseModule)
+    /// <summary>
+    /// Add a module to the inventory
+    /// </summary>
+    /// <param name="baseModule">Module you'd like to add to the inventory bar</param>
+    public void addModule(BaseModule baseModule)
     {
+        // If null or we already have this item, don't add it
         if (baseModule == null || !isNewItem(baseModule))
         {
             return;
@@ -30,18 +35,18 @@ public class Inventory : MonoBehaviour
 
         var gameObject = getFirstEmptySlot();
         setItemSlotModule(gameObject, baseModule);
+        setItemSlotAsSelected(gameObject);
     }
 
-
+    /// <summary>
+    /// Get selected Module
+    /// </summary>
+    /// <returns></returns>
     public BaseModule getSelectedModule()
     {
-        foreach(var inventorySlot in _inventorySlots)
-        {
-            var button = inventorySlot.transform.GetChild(0)?.gameObject.GetComponent<Button>();
+        var slot = gameObject.GetComponentInChildren<Slot>();
 
-        }
-
-        return null;
+        return slot?.module;
     }
 
     /// <summary>
@@ -70,7 +75,11 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-
+    /// <summary>
+    /// Retrieve the first empty inventory slot. 
+    /// If there are no emtpy slots, returns null
+    /// </summary>
+    /// <returns>First empty slot or null</returns>
     private GameObject getFirstEmptySlot()
     {
         foreach(var inventorySlot in _inventorySlots)
@@ -111,7 +120,11 @@ public class Inventory : MonoBehaviour
         return slot.module;
     }
 
-
+    /// <summary>
+    /// Set the Item slot on the In game graphical object
+    /// </summary>
+    /// <param name="gameObject">Graphical Slot</param>
+    /// <param name="baseModule">Module we're adding to it</param>
     private void setItemSlotModule(GameObject gameObject, BaseModule baseModule)
     {
         if (gameObject == null || baseModule == null)
@@ -122,9 +135,51 @@ public class Inventory : MonoBehaviour
         var slot = gameObject.GetComponentInChildren<Slot>();
         var button = gameObject.gameObject.GetComponentInChildren<Button>();
         var image = button.gameObject.GetComponentsInChildren<Image>();
-        Debug.Log(image[1].sprite);
 
         image[1].sprite = Resources.Load<Sprite>(baseModule.spritePath);
         slot.module = baseModule;
     }
+
+    private void setItemSlotAsSelected(GameObject gameObject) 
+    {
+        // Unselect current slot.
+        unselectSlot();
+        var slot = gameObject.GetComponentInChildren<Slot>();
+        slot.module?.isActive(true);
+
+        var button = gameObject.gameObject.GetComponentInChildren<Button>();
+
+        var colors = button.colors;
+        colors.normalColor = new Color(101, 161, 238);
+        colors.highlightedColor = new Color(101, 161, 238);
+        colors.pressedColor = new Color(101, 161, 238);
+        colors.selectedColor = new Color(101, 161, 238);
+
+        button.colors = colors;
+
+        var images = button.gameObject.GetComponentsInChildren<Image>();
+        images[0].color = new Color(101, 161, 238);
+
+        _selectedInventorySlot = gameObject;
+        Debug.Log("Color set");
+    }
+
+
+    private void unselectSlot()
+    {
+        if (_selectedInventorySlot == null)
+        {
+            return;
+        }
+
+        var slot = gameObject.GetComponentInChildren<Slot>();
+        slot.module?.isActive(false);
+
+        var button = gameObject.gameObject.GetComponentInChildren<Button>();
+        var images = button.gameObject.GetComponentsInChildren<Image>();
+        images[0].color = new Color(255, 255, 255);
+
+        _selectedInventorySlot = null;
+    }
+
 }

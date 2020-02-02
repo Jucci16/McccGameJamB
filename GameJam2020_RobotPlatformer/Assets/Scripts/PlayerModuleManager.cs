@@ -52,7 +52,7 @@ public class PlayerModuleManager : MonoBehaviour
 
         // Add the newly grabbed Module as the selected Module
         setSelectedModule(obtainedModules.Count - 1);
-        GetInventory().addInventoryItem(module);
+        GetInventory().addModule(module);
     }
 
     /// <summary>
