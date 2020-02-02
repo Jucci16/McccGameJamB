@@ -81,8 +81,7 @@ public class PlayerModuleManager : MonoBehaviour
             return;
         }
 
-
-            GetInventory().selectModule(index);
+        GetInventory().selectModule(index);
     }
 
     /// <summary>
