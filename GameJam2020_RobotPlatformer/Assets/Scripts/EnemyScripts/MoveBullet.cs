@@ -21,7 +21,7 @@ public class MoveBullet : MonoBehaviour
         //You can still use translate to move the bullet as long as either the bullet
         //or the enemy contains a rigidbody.
         //You cannot detect collisions unless one of the game objects has a rigidbody
-        transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
 
     }
 
