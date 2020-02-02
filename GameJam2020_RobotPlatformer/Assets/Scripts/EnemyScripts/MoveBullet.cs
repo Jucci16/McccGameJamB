@@ -8,6 +8,11 @@ public class MoveBullet : MonoBehaviour
     public float bulletSpeed;
     public float bulletLife;
 
+    /// <summary>
+    /// -1 is Left, 1 is Right
+    /// </summary>
+    private int direction = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +26,7 @@ public class MoveBullet : MonoBehaviour
         //You can still use translate to move the bullet as long as either the bullet
         //or the enemy contains a rigidbody.
         //You cannot detect collisions unless one of the game objects has a rigidbody
-        transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
+        transform.Translate((direction > 0 ? Vector3.right : Vector3.left) * bulletSpeed * Time.deltaTime);
 
     }
 
@@ -35,11 +40,20 @@ public class MoveBullet : MonoBehaviour
     {
         //if the bullet collided with the enemy
         //Remember that for collisions to work one of the game objects needs to have a rididbody
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             //Destroy the bullet once it hits the enemy
             Destroy(this.gameObject);
 
         }
+    }
+
+    /// <summary>
+    /// -1 is Left, 1 is Right
+    /// </summary>
+    /// <param name="direction"></param>
+    public void setBulletDirection(int direction)
+    {
+        this.direction = direction;
     }
 }

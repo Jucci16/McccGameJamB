@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour
         horizontalMovement();
         jump();
         crouch();
+        checkIfFallen();
     }
 
     private void crouch()
@@ -152,5 +153,25 @@ public class Movement : MonoBehaviour
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// If the player fell, reload the scene
+    /// </summary>
+    private void checkIfFallen()
+    {
+        if (transform.position.y < -15)
+        {
+            SceneManager.LoadScene("Connected Scenes");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Hazard"))
+        {
+            Debug.Log("HIT");
+            SceneManager.LoadScene("Connected Scenes");
+        }
     }
 }

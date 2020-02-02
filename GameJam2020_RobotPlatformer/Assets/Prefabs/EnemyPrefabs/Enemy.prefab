@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 52ffc9fbc9bb64941aa43f5db17e6d23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,3 +97,4 @@ MonoBehaviour:
   bullet: {fileID: 1885785950684087265, guid: a784f4c9de8875b408fb9f89a8dec3d9, type: 3}
   muzzle: {fileID: 0}
   firingRate: 3
+  otherSprite: {fileID: 0}

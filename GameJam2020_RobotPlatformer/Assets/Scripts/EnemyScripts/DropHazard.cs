@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DropHazard : MonoBehaviour
 {
-    public float timeBetweenDrops;
+    private float timeBetweenDrops;
     public float dropRate;
     private bool canDrop;
     public GameObject hazard;

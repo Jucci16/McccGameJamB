@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 // This class is the manager for a player's modules
 public class PlayerModuleManager : MonoBehaviour
@@ -96,5 +97,14 @@ public class PlayerModuleManager : MonoBehaviour
     private Inventory GetInventory()
     {
         return GameObject.FindGameObjectWithTag("ItemBar").GetComponentInChildren<Inventory>();
+    }
+
+    /// <summary>
+    /// Update the sprite for the player
+    /// </summary>
+    /// <param name="path">path of the sprite</param>
+    private void updatePlayerSprite(string path)
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(path);
     }
 }

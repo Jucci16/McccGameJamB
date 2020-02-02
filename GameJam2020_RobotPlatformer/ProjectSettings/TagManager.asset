@@ -15,6 +15,7 @@ TagManager:
   - Slot4
   - UIOverlay
   - TextOverlayObject
+  - Hazard
   layers:
   - Default
   - TransparentFX
