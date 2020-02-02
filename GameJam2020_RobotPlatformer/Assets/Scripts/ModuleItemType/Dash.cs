@@ -8,8 +8,6 @@ public class Dash : BaseModule
 
     public override string name => "Dash";
 
-    private bool canDash = true;
-
     private bool isActive = false;
 
     private float lastActivated;
@@ -20,10 +18,8 @@ public class Dash : BaseModule
 
     public override void apply(GameObject player)
     {
-        if (!canDash 
-            || !Input.GetKeyDown(KeyCode.LeftShift) 
-            || player.GetComponent<Movement>().isPlayerGrounded()
-            || Time.realtimeSinceStartup - lastActivated <= 5)
+        if (!Input.GetKeyDown(KeyCode.LeftShift) 
+            || Time.realtimeSinceStartup - lastActivated <= 2)
         {
             return;
         }
@@ -32,8 +28,7 @@ public class Dash : BaseModule
         player.GetComponent<Movement>().movementSpeed = dashSpeed;
 
         isActive = true;
-        canDash = false;
-        lastActivated = Time.timeSinceLevelLoad;
+        lastActivated = Time.realtimeSinceStartup;
     }
 
     public override string onEnableText()
@@ -55,15 +50,6 @@ public class Dash : BaseModule
             resetTimeLeft();
         }
 
-        // if canJump is false, check if it can be reset
-        if (!canDash)
-        {
-            Movement playerCurrentMovement = player.GetComponent<Movement>();
-            if (playerCurrentMovement.isPlayerGrounded())
-            {
-                canDash = true;
-            }
-        }
     }
 
     private void resetTimeLeft()
