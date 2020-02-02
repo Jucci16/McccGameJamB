@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Josten's Scene.unity
     guid: 4095855973376b34ea6760d4401ae8b8
+  - enabled: 1
+    path: Assets/Scenes/Connected Scenes.unity
+    guid: 96436f32a52493c4a8fb9aad9449183e
   m_configObjects: {}
