@@ -29,6 +29,8 @@ public class Movement : MonoBehaviour
     /// represents the player collider's distance to it's bottom
     private float colliderDistToBottom;
 
+    private Animator animator;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -39,6 +41,8 @@ public class Movement : MonoBehaviour
         tempspeed = movementSpeed;
         // get the collider distance to bottom
         colliderDistToBottom = GetComponent<Collider2D>().bounds.extents.y;
+        // get animator
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,6 +52,9 @@ public class Movement : MonoBehaviour
         jump();
         crouch();
         checkIfFallen();
+
+        // update animator grounded value
+        animator.SetBool("isGrounded", isPlayerGrounded());
     }
 
     private void crouch()
@@ -85,12 +92,10 @@ public class Movement : MonoBehaviour
     /// </summary>
     private void jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isPlayerGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && isPlayerGrounded())
         {
             ///Apply a vertical velocity to our player based on jumpForce
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, jumpForce);
-            ///Another way to apply a vertical velocity to our player based on jumpForce
-            //playerRigidBody.velocity = Vector2.up * jumpForce;
 
             if (playerRigidBody.velocity.y < 0)
             {
@@ -103,6 +108,8 @@ public class Movement : MonoBehaviour
                 playerRigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
         }
+        // set y velocity to animator
+        animator.SetFloat("velocity", playerRigidBody.velocity.y);
     }
     private void accelerate()
     {
@@ -151,7 +158,7 @@ public class Movement : MonoBehaviour
         {
             return true;
         }
-
+        
         return false;
     }
 
