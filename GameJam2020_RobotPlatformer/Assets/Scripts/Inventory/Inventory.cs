@@ -21,6 +21,13 @@ public class Inventory : MonoBehaviour
         };
     }
 
+    public void selectModule(int i)
+    {
+        // Zero based
+        i -= 1;
+        setItemSlotAsSelected(_inventorySlots[i]);
+    }
+
     /// <summary>
     /// Add a module to the inventory
     /// </summary>
@@ -44,7 +51,8 @@ public class Inventory : MonoBehaviour
     /// <returns></returns>
     public BaseModule getSelectedModule()
     {
-        var slot = gameObject.GetComponentInChildren<Slot>();
+        var slot = _selectedInventorySlot?.GetComponentInChildren<Slot>();
+
 
         return slot?.module;
     }
@@ -60,7 +68,7 @@ public class Inventory : MonoBehaviour
         // Ends early if null detected. 
         foreach (var slotObject in _inventorySlots)
         {
-            var oldItem = getSlotObjectModule(slotObject);
+            var oldItem = getModuleFromGameObject(slotObject);
             if (oldItem == null)
             {
                 return true;
@@ -101,15 +109,15 @@ public class Inventory : MonoBehaviour
     /// <returns>If empty - true. If not empty false</returns>
     private bool slotIsEmpty(GameObject slotObject)
     {
-        return getSlotObjectModule(slotObject) == null;
+        return getModuleFromGameObject(slotObject) == null;
     }
 
     /// <summary>
-    /// Get the Slot Object Modlue
+    /// Get the module from the game object(Inventory slot)
     /// </summary>
     /// <param name="gameObject">Slot Object</param>
     /// <returns>The moldule contained in the inventory slot</returns>
-    private BaseModule getSlotObjectModule(GameObject gameObject)
+    private BaseModule getModuleFromGameObject(GameObject gameObject)
     {
         var slot = gameObject.GetComponentInChildren<Slot>();
         if (slot == null)
@@ -135,7 +143,7 @@ public class Inventory : MonoBehaviour
         var slot = gameObject.GetComponentInChildren<Slot>();
         var button = gameObject.gameObject.GetComponentInChildren<Button>();
         var image = button.gameObject.GetComponentsInChildren<Image>();
-
+        
         image[1].sprite = Resources.Load<Sprite>(baseModule.spritePath);
         slot.module = baseModule;
     }
@@ -144,24 +152,12 @@ public class Inventory : MonoBehaviour
     {
         // Unselect current slot.
         unselectSlot();
+
         var slot = gameObject.GetComponentInChildren<Slot>();
         slot.module?.isActive(true);
-
-        var button = gameObject.gameObject.GetComponentInChildren<Button>();
-
-        var colors = button.colors;
-        colors.normalColor = new Color(101, 161, 238);
-        colors.highlightedColor = new Color(101, 161, 238);
-        colors.pressedColor = new Color(101, 161, 238);
-        colors.selectedColor = new Color(101, 161, 238);
-
-        button.colors = colors;
-
-        var images = button.gameObject.GetComponentsInChildren<Image>();
-        images[0].color = new Color(101, 161, 238);
+        slot.changeColor(Color.blue);
 
         _selectedInventorySlot = gameObject;
-        Debug.Log("Color set");
     }
 
 
@@ -174,10 +170,7 @@ public class Inventory : MonoBehaviour
 
         var slot = gameObject.GetComponentInChildren<Slot>();
         slot.module?.isActive(false);
-
-        var button = gameObject.gameObject.GetComponentInChildren<Button>();
-        var images = button.gameObject.GetComponentsInChildren<Image>();
-        images[0].color = new Color(255, 255, 255);
+        slot.changeColor(Color.white);
 
         _selectedInventorySlot = null;
     }

@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screen 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7769062656946097278, guid: b605c36cf3001f240afd9ff2c25e2706,
+        type: 3}
+      propertyPath: groundLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 8828118567263814469, guid: b605c36cf3001f240afd9ff2c25e2706,
         type: 3}
       propertyPath: m_LocalPosition.x
