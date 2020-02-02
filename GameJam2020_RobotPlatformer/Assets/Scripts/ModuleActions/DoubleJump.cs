@@ -28,6 +28,8 @@ public class DoubleJump : BaseModule
         }
     }
 
+
+
     public override string onEnableText()
     {
         return "Double Jump Enabled (Spacebar)";
