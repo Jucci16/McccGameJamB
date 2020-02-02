@@ -150,29 +150,35 @@ public class Inventory : MonoBehaviour
 
     private void setItemSlotAsSelected(GameObject gameObject) 
     {
+        var slot = gameObject.GetComponentInChildren<Slot>();
+        if (slot.module == null)
+        {
+            return;
+        }
+
         // Unselect current slot.
         unselectSlot();
 
-        var slot = gameObject.GetComponentInChildren<Slot>();
         slot.module?.isActive(true);
         slot.changeColor(Color.blue);
 
         _selectedInventorySlot = gameObject;
     }
 
-
     private void unselectSlot()
     {
-        if (_selectedInventorySlot == null)
+        var slot = _selectedInventorySlot?.GetComponentInChildren<Slot>();
+        if (slot == null)
         {
             return;
         }
-
-        var slot = gameObject.GetComponentInChildren<Slot>();
+        
         slot.module?.isActive(false);
         slot.changeColor(Color.white);
 
+        Debug.Log(slot);
+        Debug.Log(slot.module);
+
         _selectedInventorySlot = null;
     }
-
 }
