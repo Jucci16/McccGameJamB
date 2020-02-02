@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Josten's Scene");
+        SceneManager.LoadScene("Connected Scenes");
     }
     public void QuitGame()
     {
