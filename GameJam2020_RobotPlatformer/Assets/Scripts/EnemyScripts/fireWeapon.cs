@@ -12,6 +12,11 @@ public class fireWeapon : MonoBehaviour
     private Sprite currentSprite;
     public Sprite otherSprite;
 
+    /// <summary>
+    /// -1 for Left, 1 for Right
+    /// </summary>
+    public int firingDirection = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +50,8 @@ public class fireWeapon : MonoBehaviour
     }
     private void shootGun()
     {
-        Instantiate(bullet, muzzle.position, transform.rotation);
+        GameObject newBullet = Instantiate(bullet, muzzle.position, transform.rotation);
+        newBullet.GetComponent<MoveBullet>().setBulletDirection(firingDirection);
 
     }
 }

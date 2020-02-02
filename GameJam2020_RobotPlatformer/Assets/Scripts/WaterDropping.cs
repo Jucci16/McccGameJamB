@@ -17,8 +17,11 @@ public class WaterDropping : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(gameObject.CompareTag("Boundaries"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            //Destroy the droplet once it hits the enemy
+            Destroy(this.gameObject);
+
         }
     }
 }
