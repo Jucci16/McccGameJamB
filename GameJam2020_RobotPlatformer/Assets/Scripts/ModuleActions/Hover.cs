@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hover : BaseModule
 {
-    private const float defaultHoverTime = 0.5f;
+    private const float defaultHoverTime = 0.8f;
     // current time left to hover
     private float hoverTimeLeft = defaultHoverTime;
     // top height of a player's jump
