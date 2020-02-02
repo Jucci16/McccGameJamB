@@ -13,6 +13,8 @@ TagManager:
   - Slot2
   - Slot3
   - Slot4
+  - UIOverlay
+  - TextOverlayObject
   layers:
   - Default
   - TransparentFX

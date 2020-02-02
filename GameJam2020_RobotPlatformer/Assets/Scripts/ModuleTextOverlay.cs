@@ -7,6 +7,7 @@ public class ModuleTextOverlay : MonoBehaviour
 {
     private const float defaultDisplayTime = 3f;
     private float timeLeft;
+    private bool isDisplaying = false;
 
     void Start()
     {
@@ -17,18 +18,26 @@ public class ModuleTextOverlay : MonoBehaviour
 
     void Update()
     {
-        // if the time is up, destroy this game object
-        timeLeft -= Time.deltaTime;
-
-        if(timeLeft <= 0)
+        if (isDisplaying)
         {
-            Destroy(gameObject);
+            // if the time is up, clear the text
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+            {
+                Text textObject = GetComponent<Text>();
+                textObject.text = "";
+                isDisplaying = false;
+            }
         }
     }
 
     public void setText(string text)
     {
-        Text textObject = gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
+        Text textObject = GetComponent<Text>();
         textObject.text = text;
+
+        // reset timer
+        timeLeft = defaultDisplayTime;
+        isDisplaying = true;
     }
 }

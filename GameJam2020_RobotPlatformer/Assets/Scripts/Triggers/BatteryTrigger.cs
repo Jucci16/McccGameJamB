@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BatteryTrigger : MonoBehaviour
 {
-    public GameObject textOverlay;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -14,8 +13,8 @@ public class BatteryTrigger : MonoBehaviour
             playerBatteryManager.addBatteryToInventory();
 
             // display the text overlay for the battery
-            GameObject overlayObject = Instantiate(textOverlay);
-            overlayObject.GetComponent<ModuleTextOverlay>().setText("Battery Obtained (F to use)");
+            GameObject textOverlay = GameObject.FindGameObjectWithTag("TextOverlayObject");
+            textOverlay.GetComponent<ModuleTextOverlay>().setText("Battery Obtained (F to use)");
 
             // now delete this game object from the screen
             Destroy(this.gameObject);
