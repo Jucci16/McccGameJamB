@@ -1,26 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // This class is the manager for a player's modules
 public class PlayerModuleManager : MonoBehaviour
 {
     /// <summary>
-    /// list of modules the player has obtained
-    /// </summary>
-    private List<BaseModule> obtainedModules;
-
-    /// <summary>
-    /// Currently selected Module
-    /// </summary>
-    private BaseModule _selectedModule;
-
-    /// <summary>
     /// Called on creation
     /// </summary>
     void Start()
     {
-        obtainedModules = new List<BaseModule>();
     }
 
     /// <summary>
@@ -31,7 +18,7 @@ public class PlayerModuleManager : MonoBehaviour
         // Update Module first to ensure module has correct player state.
         UpdateModules();
         ApplyModules();
-
+        setSelectedModule();
     }
 
     /// <summary>
@@ -40,19 +27,7 @@ public class PlayerModuleManager : MonoBehaviour
     /// <param name="module"></param>
     public void addModule(BaseModule module)
     {
-        
-
-         if (obtainedModules.Contains(module))
-        {
-            Debug.Log("Module is already collected");
-            return;
-        }
-
-        obtainedModules.Add(module);
-
-        // Add the newly grabbed Module as the selected Module
-        setSelectedModule(obtainedModules.Count - 1);
-        GetInventory().addInventoryItem(module);
+        GetInventory().addModule(module);
     }
 
     /// <summary>
@@ -60,7 +35,7 @@ public class PlayerModuleManager : MonoBehaviour
     /// </summary>
     protected void ApplyModules()
     {
-        var selectedModule = getSelectedModule();
+        var selectedModule = GetInventory().getSelectedModule();
         if (selectedModule == null)
         {
             return;
@@ -75,32 +50,39 @@ public class PlayerModuleManager : MonoBehaviour
     /// </summary>
     protected void UpdateModules()
     {
-        // Null check
-        if (obtainedModules == null || obtainedModules.Count <= 0)
-        {
-            return;
-        }
-
-        // Iterate through each module and update it with the 
-        // Players current state.
-        foreach (BaseModule module in obtainedModules)
-        {
-            module.onUpdate(gameObject);
-        }
+        var selectedModule = GetInventory().getSelectedModule();
+        selectedModule?.onUpdate(gameObject);
     }
 
     /// <summary>
     /// Set the selected Module by index
     /// </summary>
     /// <param name="index">Index of module in obtained Modules</param>
-    public void setSelectedModule(int index)
+    public void setSelectedModule()
     {
-        if (obtainedModules == null || index >= obtainedModules.Count)
+        var index = -1;
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            index = 1;
+        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            index = 2;
+        } else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            index = 3;
+        } else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            index = 4;
+        } else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            index = 5;
+        } else
         {
             return;
         }
 
-        _selectedModule = obtainedModules[index];
+
+            GetInventory().selectModule(index);
     }
 
     /// <summary>
@@ -109,28 +91,8 @@ public class PlayerModuleManager : MonoBehaviour
     /// <returns>Currently selected Module</returns>
     public BaseModule getSelectedModule()
     {
-        return _selectedModule;
+        return GetInventory()?.getSelectedModule();
     }
-
-    /// <summary>
-    /// Get index by Module
-    /// </summary>
-    /// <param name="module">Module that you'd like the index of</param>
-    /// <returns> -1 if not found. Index of the module if found</returns>
-    public int getModuleIndex(BaseModule module)
-    {
-        // Iterate through each module and compare the module names
-        for (var i = 0; i < obtainedModules.Count; i++)
-        {
-            if (module.name == obtainedModules[i].name)
-            {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
 
     private Inventory GetInventory()
     {
