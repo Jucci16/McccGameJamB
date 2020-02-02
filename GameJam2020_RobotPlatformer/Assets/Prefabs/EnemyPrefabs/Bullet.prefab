@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 0
-  bulletSpeed: 0
-  bulletLife: 1
+  bulletSpeed: 10
+  bulletLife: 2
