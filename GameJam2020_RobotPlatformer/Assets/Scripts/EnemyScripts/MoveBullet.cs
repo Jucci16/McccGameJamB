@@ -40,7 +40,7 @@ public class MoveBullet : MonoBehaviour
     {
         //if the bullet collided with the enemy
         //Remember that for collisions to work one of the game objects needs to have a rididbody
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             //Destroy the bullet once it hits the enemy
             Destroy(this.gameObject);
