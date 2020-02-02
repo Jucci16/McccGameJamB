@@ -4,8 +4,6 @@ using UnityEngine;
 // This class is the manager for a player's modules
 public class PlayerModuleManager : MonoBehaviour
 {
-    private int obtainedModuleCount = 0;
-
     /// <summary>
     /// Called on creation
     /// </summary>
@@ -31,14 +29,6 @@ public class PlayerModuleManager : MonoBehaviour
     public void addModule(BaseModule module)
     {
         GetInventory().addModule(module);
-
-        obtainedModuleCount++;
-
-        if (obtainedModuleCount == 2)
-        {
-            // update the player sprite
-            updatePlayerSprite("Sprites/player/player_clean");
-        }
     }
 
     /// <summary>

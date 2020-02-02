@@ -19320,6 +19320,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d649ee0be76de48b2cd98c19f2dbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &901009397
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901009389}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf9dc60e98c5d4a47b91b4e4c1c0013b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &907480216
 GameObject:
   m_ObjectHideFlags: 0
@@ -62490,12 +62509,12 @@ PrefabInstance:
     - target: {fileID: 8181598400247963314, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8181598400247963314, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8181598400247963315, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
@@ -62506,17 +62525,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9c2e2ff7398101945936869119beadc4,
+      objectReference: {fileID: -506848616416266109, guid: d46a22ac46fbdda43a568f5cab4df8fb,
         type: 3}
     - target: {fileID: 8181598400247963316, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8181598400247963316, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8181598400247963316, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
@@ -62526,7 +62545,7 @@ PrefabInstance:
     - target: {fileID: 8181598400247963316, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8181598400247963316, guid: 193211a96dc85f44a95cc752e60af5da,
         type: 3}
