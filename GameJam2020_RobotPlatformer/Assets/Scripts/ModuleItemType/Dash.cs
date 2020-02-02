@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dash : BaseModule
 {
-    public override string spritePath => "Sprites/modules/GrappleHookx64";
+    public override string spritePath => "Sprites/modules/Dashx64";
 
     public override string name => "Dash";
 
