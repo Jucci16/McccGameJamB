@@ -44250,6 +44250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatteryItem
       objectReference: {fileID: 0}
+    - target: {fileID: 5620284289435303378, guid: a6ef6e5e4448439459f03fc0a1646330,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8261775298445447503, guid: a6ef6e5e4448439459f03fc0a1646330,
         type: 3}
       propertyPath: m_LocalPosition.x
