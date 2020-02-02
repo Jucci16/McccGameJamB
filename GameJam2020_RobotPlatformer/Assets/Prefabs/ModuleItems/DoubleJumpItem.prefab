@@ -144,8 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac80210784b2e454fa6f0eb0e082bb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textOverlay: {fileID: 3200338720567138144, guid: a99593eb0f7508d4ba9dc5b8894a5c4e,
-    type: 3}
+  textOverlay: {fileID: 0}
 --- !u!114 &-8072553281750944179
 MonoBehaviour:
   m_ObjectHideFlags: 0

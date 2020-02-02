@@ -17,12 +17,12 @@ public class ModuleTextOverlay : MonoBehaviour
 
     void Update()
     {
-        // if the time is up, destroy this game object
+        // if the time is up, clear the text
         timeLeft -= Time.deltaTime;
-
         if(timeLeft <= 0)
         {
-            Destroy(gameObject);
+            Text textObject = gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
+            textObject.text = "";
         }
     }
 
@@ -30,5 +30,8 @@ public class ModuleTextOverlay : MonoBehaviour
     {
         Text textObject = gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
         textObject.text = text;
+
+        // reset timer
+        timeLeft = defaultDisplayTime;
     }
 }
