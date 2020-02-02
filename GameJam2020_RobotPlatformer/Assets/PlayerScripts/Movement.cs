@@ -153,4 +153,13 @@ public class Movement : MonoBehaviour
 
         return false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(gameObject.CompareTag("Hazard"))
+        {
+            Debug.Log("HIT");
+            SceneManager.LoadScene("Connected Scenes");
+        }
+    }
 }
