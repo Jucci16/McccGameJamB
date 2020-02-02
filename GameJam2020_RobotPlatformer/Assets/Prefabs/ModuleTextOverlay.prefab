@@ -1016,11 +1016,10 @@ GameObject:
   - component: {fileID: 463916910590203873}
   - component: {fileID: 463916910590203875}
   - component: {fileID: 463916910590203874}
-  - component: {fileID: 463916910590203876}
-  - component: {fileID: 463916910590203877}
+  - component: {fileID: 6899329434522134258}
   m_Layer: 5
   m_Name: TextOverlay
-  m_TagString: Untagged
+  m_TagString: TextOverlayObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1084,19 +1083,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &463916910590203876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463916910590203872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51d1edd0d929a842b4762b3faa2397c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &463916910590203877
+--- !u!114 &6899329434522134258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1251,10 +1238,9 @@ GameObject:
   - component: {fileID: 463916910992369409}
   - component: {fileID: 463916910992369408}
   - component: {fileID: 463916910992369423}
-  - component: {fileID: 463916910992369422}
   m_Layer: 5
   m_Name: ModuleTextOverlay
-  m_TagString: Untagged
+  m_TagString: UIOverlay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1340,15 +1326,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &463916910992369422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463916910992369421}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51d1edd0d929a842b4762b3faa2397c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

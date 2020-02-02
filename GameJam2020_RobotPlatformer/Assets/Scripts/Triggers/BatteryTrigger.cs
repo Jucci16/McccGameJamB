@@ -13,7 +13,7 @@ public class BatteryTrigger : MonoBehaviour
             playerBatteryManager.addBatteryToInventory();
 
             // display the text overlay for the battery
-            GameObject textOverlay = GameObject.FindGameObjectWithTag("UIOverlay");
+            GameObject textOverlay = GameObject.FindGameObjectWithTag("TextOverlayObject");
             textOverlay.GetComponent<ModuleTextOverlay>().setText("Battery Obtained (F to use)");
 
             // now delete this game object from the screen

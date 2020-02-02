@@ -18,7 +18,7 @@ public class ModuleTrigger : MonoBehaviour
             playerModuleManager.addModule(moduleAction);
 
             // display the text overlay for this module's function
-            GameObject textOverlay = GameObject.FindGameObjectWithTag("UIOverlay");
+            GameObject textOverlay = GameObject.FindGameObjectWithTag("TextOverlayObject");
             textOverlay.GetComponent<ModuleTextOverlay>().setText(moduleAction.onEnableText());
 
             // now delete this game object from the screen
