@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class BaseModule
 {
-    public abstract string moduleName { get; }
+    public abstract string spritePath { get; }
+
+    public abstract string name { get; }
 
     public abstract void apply(GameObject player);
 

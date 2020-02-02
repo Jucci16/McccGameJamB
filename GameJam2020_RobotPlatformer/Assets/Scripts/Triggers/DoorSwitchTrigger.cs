@@ -17,6 +17,8 @@ public class DoorSwitchTrigger : MonoBehaviour
     /// </summary>
     bool isPlayerOverSwitch = false;
 
+    private string switchOnSprite = "Sprites/door/door_switch_on";
+
     private void Update()
     {
         if(isPlayerOverSwitch && !isSwitchedOn)
@@ -30,7 +32,13 @@ public class DoorSwitchTrigger : MonoBehaviour
                     playerBatteryManager.useBattery();
 
                     // open the door
-                    door.GetComponent<DoorState>().openDoor();
+                    door.GetComponent<IDoorState>().openDoor();
+
+                    // update door sprite (if necessary)
+                    door.GetComponent<IDoorState>().updateSprite(true);
+
+                    // update door switch sprite
+                    gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(switchOnSprite);
 
                     isSwitchedOn = true;
                 }
