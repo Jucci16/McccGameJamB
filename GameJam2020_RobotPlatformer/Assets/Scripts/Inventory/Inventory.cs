@@ -21,6 +21,10 @@ public class Inventory : MonoBehaviour
         };
     }
 
+    /// <summary>
+    /// Select a mudule by index
+    /// </summary>
+    /// <param name="i"></param>
     public void selectModule(int i)
     {
         // Zero based
@@ -148,6 +152,10 @@ public class Inventory : MonoBehaviour
         slot.module = baseModule;
     }
 
+    /// <summary>
+    /// Select Current item
+    /// </summary>
+    /// <param name="gameObject"></param>
     private void setItemSlotAsSelected(GameObject gameObject) 
     {
         var slot = gameObject.GetComponentInChildren<Slot>();
@@ -165,6 +173,9 @@ public class Inventory : MonoBehaviour
         _selectedInventorySlot = gameObject;
     }
 
+    /// <summary>
+    /// Unselect Current Item
+    /// </summary>
     private void unselectSlot()
     {
         var slot = _selectedInventorySlot?.GetComponentInChildren<Slot>();
@@ -175,9 +186,6 @@ public class Inventory : MonoBehaviour
         
         slot.module?.isActive(false);
         slot.changeColor(Color.white);
-
-        Debug.Log(slot);
-        Debug.Log(slot.module);
 
         _selectedInventorySlot = null;
     }
